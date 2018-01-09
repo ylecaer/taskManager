@@ -102,6 +102,13 @@ class TaskController extends Controller
         return redirect('tasks');
     }
 
+    /**
+     * Update the task status in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Task  $task
+     * @return \Illuminate\Http\Response
+     */
     public function toggleStatus(Request $request, Task $task)
     {
         $task->status = !$request->status;

@@ -4,7 +4,7 @@
         @if (Session::has('message'))
             <div class="alert alert-info">{{ Session::get('message') }}</div>
         @endif
-        <table class="table table-striped">
+        <table class="table">
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
@@ -30,18 +30,18 @@
               <td>
               <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="{{ URL::to('tasks/' . $task->id . '/edit') }}">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning btn-sm">Edit</button>
                   </a>&nbsp;
                   <form action="{{url('tasks', [$task->id])}}" method="POST">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-danger" value="Delete"/>
+                    <input type="submit" class="btn btn-danger btn-sm" value="Delete"/>
                  </form>&nbsp;
                  <form action="{{ route('toggleStatusName', $task->id) }}" method="POST">
                     {{ method_field('PATCH') }}
                     {{ csrf_field() }}
                     <input type="hidden" name="status" value="{{$task->status}}">
-                    <input type="submit" class="btn btn-info" value="Toggle Status"/>
+                    <input type="submit" class="btn btn-info btn-sm" value="Toggle Status"/>
    				        </form>
             </div>
  </td>
